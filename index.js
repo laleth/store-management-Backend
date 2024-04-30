@@ -10,11 +10,11 @@ const PORT = 5000
 
 app.use(express.json())
 app.use(cors({
-    origin: "https://store-management-frontend-m32q.vercel.app", 
+    origin: "https://store-management-frontend-nu.vercel.app", 
     credentials: true,
   }))
 app.get("/", (req, res) => {
-    res.send("Welcome to Store Management-backend")
+    res.send("Welcome to Store Management backend")
 })
 
 app.use("/items",itemsRoute)
