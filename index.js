@@ -9,10 +9,23 @@ const app = express()
 const PORT = 5000
 
 app.use(express.json())
+// app.use(cors({
+//     origin: "https://store-management-frontend-nu.vercel.app", 
+//     credentials: true,
+//   }))
+
 app.use(cors({
-    origin: "https://store-management-frontend-nu.vercel.app", 
+    origin: function (origin, callback) {
+        // Check if the origin is allowed to access the resource
+        if (!origin || origin === "https://store-management-frontend-nu.vercel.app" || origin === "https://store-management-frontend-m32q.vercel.app") {
+            callback(null, true);
+        } else {
+            callback(new Error("Not allowed by CORS"));
+        }
+    },
     credentials: true,
-  }))
+}));
+
 app.get("/", (req, res) => {
     res.send("Welcome to Store Management backend")
 })
