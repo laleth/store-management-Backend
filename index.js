@@ -17,8 +17,7 @@ const PORT = 5000
 app.use(cors({
     origin: function (origin, callback) {
         // Check if the origin is allowed to access the resource
-        if (!origin || origin === "https://store-management-frontend-nu.vercel.app" || origin === "https://store-management-frontend-m32q.vercel.app"
-        || origin === "https://store-management-frontend-eight.vercel.app" 
+        if (!origin || origin === "https://store-management-frontend-nu.vercel.app"
         ) {
             callback(null, true);
         } else {
